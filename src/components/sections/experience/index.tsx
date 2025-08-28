@@ -8,9 +8,12 @@ import blurImg from 'assets/blur-23.svg'
 import { useCurrentApp } from "components/context/app.context";
 import { useTranslation } from "react-i18next";
 
+type TLanguage = "vi" | "en";
+
 const Experience = () => {
     const { theme } = useCurrentApp();
     const { t, i18n } = useTranslation();
+    const currentLanguage = (i18n.resolvedLanguage) as TLanguage;
 
     return (
         <Row className="mb-5">
@@ -39,15 +42,15 @@ const Experience = () => {
                                     }
                                     <div className="experience-container">
                                         <div className="duration-text">
-                                            <p>{experience.duration[i18n.resolvedLanguage]}</p>
+                                            <p>{experience.duration[currentLanguage]}</p>
                                         </div>
                                         <div className="details">
                                             <div className="icon">
                                                 <BsPersonWorkspace size={36} />
                                             </div>
                                             <div className="info">
-                                                <p className="title">{experience.title[i18n.resolvedLanguage]}</p>
-                                                <p className="company">{experience.company[i18n.resolvedLanguage]}</p>
+                                                <p className="title">{experience.title[currentLanguage]}</p>
+                                                <p className="company">{experience.company[currentLanguage]}</p>
                                             </div>
                                         </div>
                                     </div>
